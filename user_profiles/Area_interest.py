@@ -1,7 +1,7 @@
 import openai
 import json
 
-openai.api_key = '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'
+openai.api_key = 'Your API KEY'
 
 def nlp_area_of_interest(about):
     try:
