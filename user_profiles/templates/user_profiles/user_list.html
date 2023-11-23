@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- user_profiles/templates/user_profiles/user_list.html -->
+    <h1 style="text-align: center;">Admin Panel</h1>
+    <!-- <span style="display: block; text-align: right;">  Search User Profile </span> -->
+    <form id="search-form"  style="text-align: right;">
+        {% csrf_token %}
+        {{ form.search_term }}
+    </form>
+<button><a href="{% url 'create_profile' %}"> Create User Profile </a></button>
+<!-- <h1>User List</h1> -->
+
+
+<ol  >
+    {% for user in users %}
+        <li  >
+            <p>
+            <a href="{% url 'user_detail' user.id %}" style="text-align: center;" >{{ user.name }}</a>
+            
+            <form  method="post"  action="{% url 'delete_profile' user_id=user.id %}"> 
+                {% csrf_token %}
+                <button type="submit">Delete Profile</button> <br> <br>
+            </form>
+            </p>
+        </li>
+    {% endfor %}
+</ol>
+
+</body>
+</html>

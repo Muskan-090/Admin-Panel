@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h4>User Name : {{ user.name }} <h4>
+
+    <h4> User designation : {{ user.designation }}</h4>
+    <h4> User Company : {{ user.company }}</h4>
+    <h4> Image Link - {{ user.display_picture }} </h4>
+<img src="{{ user.display_picture }}" alt="Profile Picture"  style="height: 200px; width: 200px;">
+<h4>About : {{ user.about }}</h4>
+<h4>Areas of Interest: </h4>
+
+<p>{{user.areas_of_interest}}</p>
+{% for Interest in user.areas_of_interest %}
+
+  <p>{{ Interest }}<p>
+
+{% endfor %}
+
+</body>
+</html>
